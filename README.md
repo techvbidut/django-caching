@@ -19,7 +19,7 @@ From database queries to template rendering to business logic everything needs t
 
 ### What all things can we cache?
 1. Output of a specific view.
-2. A part of template that is difficult to produce.
+2. A part of template. (which is difficult to produce)
 3. The entire site.
 
 ### Where can the cache be saved?
@@ -29,12 +29,12 @@ From database queries to template rendering to business logic everything needs t
 
 ## Django Caching Types
 
-1. <b>Memcached:</b> Memcached is a memory-based, key-value store for small chunks of data. It supports distributed caching across multiple servers.
+1. <b>Memcached:</b> It is a <b>memory-based</b>, key-value store for small chunks of data. It supports distributed caching across multiple servers.
 
-2. <b>Database:</b> Here, the cache fragments are stored in a database. A table for that purpose can be created with one of the Django's admin commands. This isn't the most performant caching type, but it can be useful for storing complex database queries.
+2. <b>Database:</b> The cache fragments are <b>stored in database</b>. It can be useful for <b>storing complex database queries</b>. However, it is <b>not much efficient</b>, in general.
 
-3. <b>File system:</b> The cache is saved on the file system, in separate files for each cache value. This is the slowest of all the caching types, but it's the easiest to set up in a production environment.
+3. <b>File system:</b> The cache is saved on the file system, in <b>separate files</b> for each cache value. It is the <b>easiest</b> for setting up but is the <b>slowest</b> of all.
 
-4. <b>Local memory:</b> Local memory cache, which is best-suited for your local development or testing environments. While it's almost as fast as Memcached, it cannot scale beyond a single server, so it's not appropriate to use as a data cache for any app that uses more than one web server.
+4. <b>Local memory:</b> Local memory cache, which is <b>best-suited for your local development or testing environments</b>. While it's almost as fast as Memcached, it cannot scale beyond a single server, so it's not appropriate to use as a data cache for any app that uses more than one web server.
 
-5. <b>Dummy:</b> A "dummy" cache that doesn't actually cache anything but still implements the cache interface. It's meant to be used in development or testing when you don't want caching, but do not wish to change your code.
+5. <b>Dummy:</b> A "dummy" cache that <b>doesn't actually cache anything</b> but still implements the cache interface. It's meant to be used in development or testing when you don't want caching, but do not wish to change your code.
