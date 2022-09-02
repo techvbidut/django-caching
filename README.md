@@ -18,9 +18,10 @@ From database queries to template rendering to business logic everything needs t
 4. Else, generate the page. Save that page in cache, for next time & return the generated page.
 
 ### What all things can we cache?
-1. Output of a specific view.
-2. A part of template. (which is difficult to produce)
-3. The entire site.
+1. Output of a specific view. [Per-view cache] 
+2. A part of template. (which is difficult to produce)  [Template fragment cache]
+3. The entire site. [Per-site cache]
+4. Low-level cache API (Instead of full page, we cache only those results which is not likely to change in a page.)
 
 ### Where can the cache be saved?
 1. Database
