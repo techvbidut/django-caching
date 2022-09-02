@@ -44,19 +44,19 @@ From database queries to template rendering to business logic everything needs t
 ### Lets do it practically...
 
 ## PER-SITE CACHE
-1. We have to add two middleware `UpdateCacheMiddleware` and `FetchFromCacheMiddleware` in the `settings.py` file.
+1. We have to add two middleware `UpdateCacheMiddleware` and `FetchFromCacheMiddleware` in the `settings.py` file. (Sequence is important)
   ```
   MIDDLEWARE = [
-    'django.middleware.cache.UpdateCacheMiddleware',     # NEW
+    'django.middleware.cache.UpdateCacheMiddleware',   
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',  # NEW
+    'django.middleware.cache.FetchFromCacheMiddleware', 
   ]
   ```
 2. Also add the following constants in `settings.py` file.
   ```
-  CACHE_MIDDLEWARE_ALIAS = 'default'  # which cache alias to use
-  CACHE_MIDDLEWARE_SECONDS = '600'    # number of seconds to cache a page for (TTL)
-  CACHE_MIDDLEWARE_KEY_PREFIX = ''    # should be used if the cache is shared across multiple sites that use the same Django instance
+  CACHE_MIDDLEWARE_ALIAS = 'default'  #Alias for cache
+  CACHE_MIDDLEWARE_SECONDS = '600'    #Number of seconds to cache a page
+  CACHE_MIDDLEWARE_KEY_PREFIX = ''    #Should be used if the cache is shared across multiple sites that use the same Django instance
   ```
 3. It is useful when, site has little or no dynamic content. But it may not be appropriate to use for large sites.
 
